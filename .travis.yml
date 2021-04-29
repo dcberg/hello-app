@@ -12,3 +12,5 @@ before_install:
 script:
   - make buildgo
   - make all
+  - docker build danberg/hello-app
+  - docker push danberg/hello-app

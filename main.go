@@ -37,8 +37,8 @@ func simpleHelloHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fmt.Println("Server Starting")
-	http.HandleFunc("/hello", simpleHelloHandler)
-	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/hello-app", simpleHelloHandler)
+	http.HandleFunc("/hello", indexHandler)
 
 	http.ListenAndServe(":8080", nil)
 }
