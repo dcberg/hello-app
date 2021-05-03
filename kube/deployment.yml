@@ -22,7 +22,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - host: "local.digitalai.cloud"
+  - host: "{{ingress_host}}"
     http:
       paths:
       - path: /hello(/|$)(.*)
@@ -55,7 +55,7 @@ spec:
         app: hello-app
     spec:
       containers:
-      - image: danberg/hello-app:latest
+      - image: danberg/hello-app:{{image_tag}}
         name: hello-app
         ports:
           - containerPort: 8080
