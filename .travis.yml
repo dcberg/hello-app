@@ -3,11 +3,16 @@ language: go
 go:
 - 1.13.5
 
+env:
+  - VERSION=10.0.1
+
 services:
   - docker
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - curl -LO https://dist.xebialabs.com/public/xl-cli/$VERSION/linux-amd64/xl
+  - chmod +x xl
 
 script:
   - make buildgo

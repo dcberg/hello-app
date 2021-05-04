@@ -2,17 +2,17 @@
 apiVersion: xl-deploy/v1
 kind: Applications
 spec:
-- name: Applications/Team1/HelloWorld
+- name: Applications/HelloWorld
   type: udm.Application
-  placeholders:
-  - image_tag
-  - ingress_host
   children:
   - name: 8be52c0
     type: udm.DeploymentPackage
     deployables:
     - name: hello-deployment.yaml
       type: k8s.ResourcesFile
+      placeholders:
+      - image_tag 
+      - ingress_host
       fileEncodings:
         ".+\\.properties": ISO-8859-1
       mergePatchType: strategic
@@ -24,5 +24,5 @@ spec:
       displayResourceOnLogs: "false"
       showContainerLogs: "false"
       bytesToReadFromContainerLogs: "4000"
-      file: !file "kube/deployment.yml"
+      file: !file "../kube/deployment.yml"
   

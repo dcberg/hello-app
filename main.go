@@ -37,6 +37,7 @@ func simpleHelloHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fmt.Println("Server Starting")
+	fmt.Println("Setting up handlers")
 	http.HandleFunc("/hello-app", simpleHelloHandler)
 	http.HandleFunc("/hello", indexHandler)
 
