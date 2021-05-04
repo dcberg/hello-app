@@ -13,6 +13,7 @@ type info struct {
 }
 
 func indexHandler(response http.ResponseWriter, request *http.Request) {
+	fmt.Println("Handling request...")
 	tmplt := template.New("index.html")
 	tmplt, _ = tmplt.ParseFiles("index.html")
 
@@ -40,6 +41,6 @@ func main() {
 	fmt.Println("Setting up handlers")
 	http.HandleFunc("/hello-app", simpleHelloHandler)
 	http.HandleFunc("/hello", indexHandler)
-
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("Serving on port 8080")
+	fmt.Println(http.ListenAndServe(":8080", nil))
 }
