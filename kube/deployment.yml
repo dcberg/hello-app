@@ -59,14 +59,6 @@ spec:
         name: hello-app
         ports:
           - containerPort: 8080
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
         env:
           - name: message
             value: "Hello Everyone"
